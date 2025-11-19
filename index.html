@@ -48,11 +48,12 @@
         </ul>
     </header>
 
-    <main class="pt-15">
-        <section
-    class="relative h-auto sm:h-auto md:h-screen px-4 sm:px-6 md:px-16 flex flex-col-reverse md:flex-row items-center md:items-start justify-between"
+    <main class="pt-24 pb-10 overflow-x-hidden">
+       <section
+    class="relative overflow-x-hidden min-h-screen px-4 sm:px-6 md:px-16 flex flex-col-reverse md:flex-row items-center md:items-center justify-between"
     id="bg">
-    <div class="order-2 md:order-1 w-full mt-5 md:mt-15 space-y-5 text-center md:text-left ">
+
+    <div class="order-2 md:order-1 w-full mt-5 md:mt-0 space-y-5 text-center md:text-left">
         <h2 class="text-4xl sm:text-5xl md:text-6xl font-light">Providing</h2>
         <h2 class="text-4xl sm:text-5xl md:text-6xl font-light">Best</h2>
         <h2 class="text-4xl sm:text-5xl md:text-6xl text-blue-400 font-semibold">WEB Services</h2>
@@ -78,11 +79,13 @@
             </button>
         </div>
     </div>
+
     <div class="order-1 md:order-2 w-full flex justify-center mt-8 md:mt-0">
-        <img src="./image/gen1.png" alt="" class="w-[300px] sm:w-[330px] md:w-[480px] lg:w-[560px]">
+        <img src="./image/gen1.png" alt="" class="w-[400px] sm:w-[400px] md:w-[480px] lg:w-[560px]">
     </div>
 
 </section>
+
 
         <section class="mb-20 overflow-hidden">
             <div id="logoSection" class="bg-gray-100 text-2xl font-serif flex justify-center pt-7 pb-7 font-semibold
@@ -110,25 +113,33 @@
                     surprise screened no up as.
                 </p>
             </div>
-            <div class="flex flex-col items-center space-y-10 mt-10 mb-10">
-                <div class="flex flex-col sm:flex-col md:flex-row justify-center gap-10">
-                    <img id="img1" src="./image/img1.png" alt="image"
-                        class="w-[260px] sm:w-[320px] md:w-[400px] opacity-0 -translate-x-10 transition-all duration-700">
-                    <img id="img2" src="./image/img2.png" alt="image"
-                        class="w-[260px] sm:w-[320px] md:w-[400px] mt-8 md:mt-0 opacity-0 translate-x-10 transition-all duration-700">
-                </div>
-                <div class="flex flex-col sm:flex-col md:flex-row justify-center gap-10">
-                    <img id="img3" src="./image/img3.png" alt="image"
-                        class="w-[260px] sm:w-[320px] md:w-[400px] opacity-0 translate-y-10 -translate-x-5 transition-all duration-700">
+<div class="flex flex-col items-center space-y-10 mt-10 mb-10">
 
-                    <img id="img4" src="./image/img4.png" alt="image"
-                        class="w-[260px] sm:w-[320px] md:w-[400px] mt-5 md:mt-0 opacity-0 translate-y-10 translate-x-5 transition-all duration-700">
-                </div>
-                <button
-                    class="border border-sky-400 px-10 py-2 rounded-xl hover:bg-sky-500 hover:text-white text-sky-400 transition duration-500 ease-in-out transform">
-                    Explore all
-                </button>
-            </div>
+    <!-- Top Row -->
+    <div class="w-full flex flex-col md:flex-row justify-center items-center gap-6 md:gap-10">
+        <img id="img1" src="./image/img1.png" alt="image"
+            class="w-full max-w-[360px] sm:max-w-[420px] md:max-w-[450px] opacity-0 -translate-x-10 transition-all duration-700">
+
+        <img id="img2" src="./image/img2.png" alt="image"
+            class="w-full max-w-[360px] sm:max-w-[420px] md:max-w-[450px] mt-6 md:mt-0 opacity-0 translate-x-10 transition-all duration-700">
+    </div>
+
+    <!-- Bottom Row -->
+    <div class="w-full flex flex-col md:flex-row justify-center items-center gap-6 md:gap-10">
+        <img id="img3" src="./image/img3.png" alt="image"
+            class="w-full max-w-[360px] sm:max-w-[420px] md:max-w-[450px] opacity-0 translate-y-10 -translate-x-5 transition-all duration-700">
+
+        <img id="img4" src="./image/img4.png" alt="image"
+            class="w-full max-w-[360px] sm:max-w-[420px] md:max-w-[450px] mt-6 md:mt-0 opacity-0 translate-y-10 translate-x-5 transition-all duration-700">
+    </div>
+
+    <button
+        class="border border-sky-400 px-10 py-2 rounded-xl hover:bg-sky-500 hover:text-white text-sky-400 transition duration-500">
+        Explore all
+    </button>
+
+</div>
+
         </section>
         <section class="w-full h-auto bg-gray-100">
             <div class="flex flex-col mt-15 items-center">
@@ -388,7 +399,7 @@
             </div>
             <div class="flex flex-col sm:flex-col md:flex-row gap-10 mt-6 md:mt-10 items-center w-full justify-center">
                 <div
-                    class="w-[300px] sm:w-[320px] md:w-[300px] h-[50vh] sm:h-[50vh] bg-gray-200 rounded-2xl flex flex-col items-center">
+                    class="w-[300px] sm:w-[320px] md:w-[300px] h-[35vh] sm:h-[50vh] bg-gray-200 rounded-2xl flex flex-col items-center">
                     <h1 class="border w-full border-gray-400 rounded-tl-2xl rounded-tr-2xl p-2 text-center text-2xl">
                         Featured project
                     </h1>
@@ -406,12 +417,12 @@
                     </a>
                 </div>
                 <div
-                    class="w-[300px] sm:w-[320px] md:w-[300px] h-[50vh] sm:h-[50vh] bg-gray-200 rounded-2xl flex flex-col items-center">
+                    class="w-[300px] sm:w-[320px] md:w-[300px] h-[35vh] sm:h-[50vh] md:h-[50vh] bg-gray-200 rounded-2xl flex flex-col items-center">
                     <h1 class="border w-full border-gray-400 rounded-tl-2xl rounded-tr-2xl p-2 text-center text-2xl">
                         Featured project
                     </h1>
-                    <h2 class="text-2xl sm:text-3xl md:text-3xl text-sky-400 font-semibold mt-2 text-center">
-                        Alhabib-bank-clone</h2>
+                    <h2 class="text-2xl sm:text-3xl md:text-3xl  text-sky-400 font-semibold mt-2 text-center">
+                        Bank-clone</h2>
                     <p class="text-sm sm:text-base md:text-sm text-gray-700 p-3 text-center">
                         A responsive car showcase website built with HTML, CSS, and JavaScript. Features include a
                         modern layout, interactive elements, and responsive design for all screen sizes.
@@ -424,7 +435,7 @@
                     </a>
                 </div>
                 <div
-                    class="w-[300px] sm:w-[320px] md:w-[300px] h-[50vh] sm:h-[50vh] bg-gray-200 rounded-2xl flex flex-col items-center">
+                    class="w-[300px] sm:w-[320px] md:w-[300px] h-[35vh] sm:h-[50vh] md:h-[50vh] bg-gray-200 rounded-2xl flex flex-col items-center">
                     <h1 class="border w-full border-gray-400 rounded-tl-2xl rounded-tr-2xl p-2 text-center text-2xl">
                         Featured project
                     </h1>
