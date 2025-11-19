@@ -1,3 +1,4 @@
+// --- 1. HAMBURGER MENU ---
 const hamburger = document.getElementById('hamburger');
 const mobileNav = document.getElementById('mobile-nav');
 
@@ -5,6 +6,7 @@ hamburger.addEventListener('click', () => {
     mobileNav.classList.toggle('hidden');
 });
 
+// --- 2. TYPEWRITER EFFECT ---
 const texts = [
     "Name Muhammad Aaliyan",
     "A Front-end Developer",
@@ -28,85 +30,90 @@ function type() {
         j++;
     }
 
-    document.getElementById("typewriter").textContent = currentText;
+    const typewriterElement = document.getElementById("typewriter");
+    if (typewriterElement) {
+        typewriterElement.textContent = currentText;
+    }
 
     if (!isDeleting && j === fullText.length) {
+        // Text poora type ho gaya, 1 second wait karo aur delete karna shuru karo
         setTimeout(() => {
             isDeleting = true;
             type();
         }, 1000);
         return;
     } else if (isDeleting && j === 0) {
+        // Text poora delete ho gaya, agli line par jao
         isDeleting = false;
         i = (i + 1) % texts.length;
     }
 
+    // Speed set karo (deleting mein tez, typing mein normal)
     setTimeout(type, isDeleting ? speed / 2 : speed);
 }
 
 type();
-const boxes = document.querySelectorAll(".service-box");
 
-boxes.forEach(box => {
-    const header = box.querySelector(".service-header");
+// --- 3. FAQ ACCORDION LOGIC (FIXED) ---
+const faqItems = document.querySelectorAll(".faq-item");
+
+faqItems.forEach(item => {
+    const header = item.querySelector(".faq-header");
+    const content = item.querySelector(".faq-content");
+    // Arrow element ko target karo
+    const arrowImage = item.querySelector(".arrow img");
 
     header.addEventListener("click", () => {
-        box.classList.toggle("active");
+        const isContentHidden = content.classList.contains("hidden");
+
+        // 1. Current item ko toggle karo
+        content.classList.toggle("hidden");
+        
+        // 2. Arrow ko rotate karo (0 degree jab hidden ho, 180 degree jab visible ho)
+        arrowImage.style.transform = isContentHidden ? 'rotate(180deg)' : 'rotate(0deg)';
+
+        // 3. Doosre saare open items ko band karo (Cleanup)
+        faqItems.forEach(otherItem => {
+            const otherContent = otherItem.querySelector(".faq-content");
+            const otherArrow = otherItem.querySelector(".arrow img");
+            
+            if (otherItem !== item && !otherContent.classList.contains("hidden")) {
+                otherContent.classList.add("hidden");
+                otherArrow.style.transform = 'rotate(0deg)';
+            }
+        });
     });
 });
-const logoSection = document.getElementById("logoSection");
 
-window.addEventListener("scroll", () => {
-    const rect = logoSection.getBoundingClientRect();
-    const isVisible = rect.top < window.innerHeight - 100 && rect.bottom > 100;
 
-    if (isVisible) {
+// --- 4. SCROLL ANIMATIONS (OPTIMIZED using Intersection Observer) ---
 
-        logoSection.classList.remove("opacity-0", "-translate-x-20");
-        logoSection.classList.add("opacity-100", "translate-x-0");
-    } else {
-        logoSection.classList.add("opacity-0", "-translate-x-20");
-        logoSection.classList.remove("opacity-100", "translate-x-0");
-    }
-});
-const textBox = document.getElementById("textBox");
+// Saare elements jin ko animate karna hai, unko yahan query karo.
+const animatedElements = document.querySelectorAll('#logoSection, #textBox, #img1, #img2, #img3, #img4');
 
-window.addEventListener("scroll", () => {
-    const rect = textBox.getBoundingClientRect();
-    const visible = rect.top < window.innerHeight - 100;
-
-    if (visible) {
-        textBox.classList.remove("opacity-0", "translate-y-10");
-        textBox.classList.add("opacity-100", "translate-y-0");
-    } else {
-        textBox.classList.add("opacity-0", "translate-y-10");
-        textBox.classList.remove("opacity-100", "translate-y-0");
-    }
-});
-const img1 = document.getElementById("img1");
-const img2 = document.getElementById("img2");
-const img3 = document.getElementById("img3");
-const img4 = document.getElementById("img4");
-
-window.addEventListener("scroll", () => {
-    const point = img1.getBoundingClientRect().top;
-    const visible = point < window.innerHeight - 120;
-
-    if (visible) {
-        img1.classList.remove("opacity-0", "-translate-x-10");
-        img1.classList.add("opacity-100", "translate-x-0");
-        img2.classList.remove("opacity-0", "translate-x-10");
-        img2.classList.add("opacity-100", "translate-x-0");
-        img3.classList.remove("opacity-0", "translate-y-10", "-translate-x-5");
-        img3.classList.add("opacity-100", "translate-y-0", "translate-x-0");
-        img4.classList.remove("opacity-0", "translate-y-10", "translate-x-5");
-        img4.classList.add("opacity-100", "translate-y-0", "translate-x-0");
-
-    } else {
-        img1.classList.add("opacity-0", "-translate-x-10");
-        img2.classList.add("opacity-0", "translate-x-10");
-        img3.classList.add("opacity-0", "translate-y-10", "-translate-x-5");
-        img4.classList.add("opacity-0", "translate-y-10", "translate-x-5");
-    }
+const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            // Element screen par aa gaya hai (Visible)
+            entry.target.classList.remove(
+                "opacity-0", 
+                "-translate-x-20", 
+                "translate-y-10", 
+                "-translate-x-10", 
+                "translate-x-10", 
+                "-translate-x-5", 
+                "translate-x-5"
+            );
+            entry.target.classList.add("opacity-100", "translate-x-0", "translate-y-0");
+            
+            // Jab animation ho jaye, toh is element ko observe karna band kar do
+            observer.unobserve(entry.target);
+        }
+    });
+}, {
+    threshold: 0.1 // Jab element ka 10% dikh jaye tab trigger karo
 });
 
+animatedElements.forEach(element => {
+    observer.observe(element);
+});
