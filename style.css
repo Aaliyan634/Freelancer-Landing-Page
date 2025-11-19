@@ -1,0 +1,64 @@
+#bg {
+    background-image: url("./image/Generated\ Image\ November\ 18\,\ 2025\ -\ 10_57AM.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+
+}
+
+.cursor {
+    display: inline-block;
+    width: 2px;
+    background-color: black;
+    animation: blink 0.7s steps(1) infinite;
+    margin-left: 2px;
+}
+
+@keyframes blink {
+
+    0%,
+    50%,
+    100% {
+        opacity: 1;
+    }
+
+    25%,
+    75% {
+        opacity: 0;
+    }
+}
+.service-box {
+  width: 700px;
+  margin: 20px auto;
+}
+
+.service-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px;
+  border: 1px solid #d1d5db;
+  background: #f9fafb;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+.arrow {
+  transition: transform 0.3s ease;
+}
+
+.service-list {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+  padding: 0 20px;
+}
+
+/* open */
+.service-box.active .service-list {
+  max-height: 300px;
+}
+
+.service-box.active .arrow {
+  transform: rotate(180deg);
+}
